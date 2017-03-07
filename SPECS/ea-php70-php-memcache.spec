@@ -3,7 +3,7 @@
 %global ext_dir usr/%{_lib}/php/modules
 %global conf_dir etc/php.d
 
-Name: ea-%{scl_version}-php-memcache
+Name: %{scl_version}-php-memcache
 Version: 3.0.8
 Summary: memcache extension for %{scl_version}
 Release: 1%{?dist}
