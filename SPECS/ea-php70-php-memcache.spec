@@ -4,9 +4,10 @@
 %global conf_dir etc/php.d
 
 Name: %{scl_version}-php-memcache
-Version: 3.0.8
+Version: 4.0.3
 Summary: memcache extension for %{scl_version}
-%define release_prefix 1
+# Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4576 for more details
+%define release_prefix 3
 Release: %{release_prefix}%{?dist}.cpanel
 License: MIT
 Group: Programming/Languages
@@ -17,6 +18,7 @@ Source1: memcache.ini
 # should be no requires for building this package
 #Requires: memcached
 #BuildRequires: libyaml-devel
+Requires: %{scl_version} %{scl_version}-php-cli
 BuildRequires: %{scl_version} %{scl_version}-php-cli
 
 %description
@@ -47,6 +49,18 @@ install -m 644 %{SOURCE1} %{buildroot}/%{ext_prefix}/%{conf_dir}/
 %config /%{ext_prefix}/%{conf_dir}/memcache.ini
 
 %changelog
+* Mon Apr 13 2020 Tim Mullin <tim@cpanel.net> - 4.0.3-3
+- EA-8978: Add php as a dependency
+
+* Wed Apr 08 2020 Daniel Muey <dan@cpanel.net> - 4.0.3-2
+- ZC-6515: Promote from experimental
+
+* Fri Apr 26 2019 Tim Mullin <tim@cpanel.net> - 4.0.3-1
+- EA-8224: Updated to 4.0.3
+
+* Wed Jan 01 2018 Dan Muey <dan@cpanel.net> - 3.0.9-1
+- EA-6097: Correct version to 3.0.9
+
 * Mon Mar  6 2017 Jack Hayhurst <jack@deleteos.com> - 0.2
 - added ea-php71-php-memcahe branched off of php54
 
