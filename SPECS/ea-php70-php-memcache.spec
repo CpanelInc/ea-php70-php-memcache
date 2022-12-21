@@ -7,7 +7,7 @@ Name: %{scl_version}-php-memcache
 Version: 4.0.3
 Summary: memcache extension for %{scl_version}
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4576 for more details
-%define release_prefix 4
+%define release_prefix 5
 Release: %{release_prefix}%{?dist}.cpanel
 License: MIT
 Group: Programming/Languages
@@ -50,6 +50,9 @@ install -m 644 %{SOURCE1} %{buildroot}/%{ext_prefix}/%{conf_dir}/
 %config /%{ext_prefix}/%{conf_dir}/memcache.ini
 
 %changelog
+* Tue Dec 28 2021 Dan Muey <dan@cpanel.net> - 4.0.3-5
+- ZC-9589: Update DISABLE_BUILD to match OBS
+
 * Mon Apr 20 2020 Daniel Muey <dan@cpanel.net> - 4.0.3-4
 - ZC-6608: Fix Requires for PHP
 
